@@ -51,21 +51,26 @@ char* strip(char* str) {
 
 /*
  * Return true (1) if the given string is "clean", i.e., has
+ * 
  * no spaces at the front or the back of the string.
  */
 int is_clean(char* str) {
   char* cleaned;
   int result;
-
+ 
   // We check if it's clean by calling strip and seeing if the
   // result is the same as the original string.
   cleaned = strip(str);
-
+	
   // strcmp compares two strings, returning a negative value if
   // the first is less than the second (in alphabetical order),
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
   result = strcmp(str, cleaned);
+
+  if (strlen(cleaned)!=0){
+  free(cleaned);
+	}
 
   return result == 0;
 }
@@ -92,4 +97,4 @@ int main() {
   }
 
   return 0;
-}
+ }
